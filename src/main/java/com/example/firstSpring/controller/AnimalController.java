@@ -1,4 +1,8 @@
-package com.example.firstSpring;
+package com.example.firstSpring.controller;
+import com.example.firstSpring.NewCatRequest;
+import com.example.firstSpring.NewDogRequest;
+import com.example.firstSpring.StaticCats;
+import com.example.firstSpring.StaticDogs;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -98,6 +102,17 @@ public class AnimalController {
     }
 }
 
+
+//    @Autowired
+//    public CatController(CatService catService) {
+//        this.catService = catService;
+//    }
+//
+//    @GetMapping
+//    public ResponseEntity<List<Cat>> getAllCats() {
+//        List<Cat> cats = catService.getAllCats();
+//        return ResponseEntity.ok(cats);
+//    }
 
 
 // TODO : endpoint  request post  create cat , create dog  saves it in memory , at

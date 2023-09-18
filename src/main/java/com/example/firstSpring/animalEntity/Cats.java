@@ -1,5 +1,8 @@
 package com.example.firstSpring.animalEntity;
-
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -22,3 +25,5 @@ public class Cats {
 
 }
 
+// TODO : implementation recherche  by cat id ,  create new cat ( post) ,         done
+//  create  react app , list all cats , create cats form in a separate page

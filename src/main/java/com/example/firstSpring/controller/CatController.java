@@ -22,6 +22,13 @@ public class CatController {
         return ResponseEntity.ok(cats);
     }
 
+    @GetMapping("/{id}")
+    public ResponseEntity<Cats> getCatById(@PathVariable int id) {
+        Cats  catWithId = catService.getCatWithId(id);
+        if(catWithId != null) {
+            return ResponseEntity.ok(catWithId);
+        }return ResponseEntity.notFound().build();
+    }
 }
 
 

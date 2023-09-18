@@ -3,6 +3,7 @@ package com.example.firstSpring.controller;
 import com.example.firstSpring.animalEntity.Cats;
 import com.example.firstSpring.animalService.CatService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -29,6 +30,12 @@ public class CatController {
             return ResponseEntity.ok(catWithId);
         }return ResponseEntity.notFound().build();
     }
+    @PostMapping
+    public ResponseEntity<Cats> createCat(@RequestBody Cats newCat) {
+        Cats cat = catService.createCat(newCat);
+        return ResponseEntity.status(HttpStatus.CREATED).body(cat);
+    }
+
 }
 
 

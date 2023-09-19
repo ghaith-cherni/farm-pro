@@ -57,16 +57,6 @@ public class CatService {
 
     }
 
-
-//    public  ResponseCats  findByName(CheckCatReq checkCatReq) {
-//
-//        ResponseCats cat = catRepo.findByName(checkCatReq.getName());
-//
-//            return cat;
-//        } else  return null;
-//    }
-
-
     public Cats getCatWithId(int id) {
 
         return catRepo.findById(id).orElse(null);

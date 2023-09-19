@@ -67,20 +67,3 @@ public class CatController {
 
 
 
-
-
-
-//    n7et post search-cat
-//
-//        search-cat-by-name
-//
-//        te5edh json
-//
-//        { "name": "movhou"}
-//
-//        traja3
-//        cat bel format { "name": "michou", "price": 60} ( manghir id)
-
-
-
-

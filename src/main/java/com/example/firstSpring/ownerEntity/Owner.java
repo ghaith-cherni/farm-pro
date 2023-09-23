@@ -8,8 +8,10 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDate;
+
 @Entity
-@Table(name="owners")
+@Table(name = "owners")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -17,9 +19,10 @@ public class Owner {
     @Id
     int id;
     String name;
-    String lastName;
-    int age;
-    int posAnimalId;
-    String profilePic ;
-
+    String lastname;
+    LocalDate birthday;
+    String profilepic;
+    String username;
+   String password;
+//   int posAnimalId;
 }

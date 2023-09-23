@@ -22,8 +22,8 @@ public class Cats {
     private String name;
     private int price;
 
-    @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id")
-        private Owner owner;
+//    @OneToOne(fetch = FetchType.LAZY)
+//    @JoinColumn(name = "id")
+//        private Owner owner;
 }
 

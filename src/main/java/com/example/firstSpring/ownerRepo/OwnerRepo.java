@@ -9,7 +9,6 @@ import java.util.List;
 @Repository
 public interface OwnerRepo extends JpaRepository<Owner, Integer> {
 
-
-
+    List<Owner> findByUsername(String username);
 
 }

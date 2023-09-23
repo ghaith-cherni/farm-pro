@@ -53,8 +53,6 @@ public class CatService {
             ResponseCats res = new ResponseCats(firstCat.getName(), firstCat.getPrice());
             return res;
         }
-
-
     }
 
     public Cats getCatWithId(int id) {

@@ -1,5 +1,5 @@
 package com.example.firstSpring.controller;
-
+import org.springframework.web.bind.annotation.CrossOrigin;
 import com.example.firstSpring.animalEntity.Cats;
 import com.example.firstSpring.animalService.CatService;
 import com.example.firstSpring.request.CheckCatReq;
@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-
+@CrossOrigin(origins = "http://localhost:3000")
 @RestController
 @RequestMapping("/db")
 public class CatController {
@@ -67,3 +67,38 @@ public class CatController {
 
 
 
+
+//TODO :  create  react app , list all cats , create cats form in a separate page        : 2 screens
+// TODO :every cat has it's owner (name, surname , birthdate and possess only one cat and has a profile pic),
+//  make  page   with users list with data above name ... cat , when cat is clicked it render an other page  ( cat data : name id price ...),
+//  third page : sign in as a user  : fullName , profile pic
+
+//TODO
+// package owner entity -> owner /package owner-repo -> interface ownerRepo   /package owner-service ->ownerService  /package owner-controller ->ownerController,
+// ,add  to table cat a owner column in postgresSql, table owner
+// add to the cat entity owner attribute, repo,service,controller
+// , Get request /db/Get-owners
+/* [{ "name": String,
+    "surname":String,
+    "age":int,
+    "animalName":String
+    "animalId"
+    },
+    ]
+    ,table owner :  id
+                    name
+                    surname
+                    birthday
+                    profilePic : Sting url
+                    animal id
+
+
+//TODO*   Get request /db/Get-animal/{id}
+
+
+
+
+
+
+
+*/

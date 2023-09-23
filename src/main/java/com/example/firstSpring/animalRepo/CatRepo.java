@@ -13,7 +13,7 @@ import java.util.List;
 public interface CatRepo extends JpaRepository<Cats, Integer>  {
     List<Cats> findByName(String name) ;
 
-    List<Cats> findByPrice(int price) ;
+
     List<Cats> findCatsByName(String name);
 
 }

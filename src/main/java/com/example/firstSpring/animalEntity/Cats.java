@@ -1,16 +1,19 @@
 package com.example.firstSpring.animalEntity;
 
+import com.example.firstSpring.ownerEntity.Owner;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "cats")
 @Data
+@AllArgsConstructor
 @NoArgsConstructor
 public class Cats {
     @Id
@@ -19,13 +22,8 @@ public class Cats {
     private String name;
     private int price;
 
-    public Cats(int id, String name, int price) {
-        this.id = id;
-        this.name = name;
-        this.price = price;
-    }
-
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id")
+        private Owner owner;
 }
 
-// TODO : implementation recherche  by cat id ,  create new cat ( post) ,         done
-//  create  react app , list all cats , create cats form in a separate page

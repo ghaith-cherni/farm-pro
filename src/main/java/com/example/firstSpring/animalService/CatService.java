@@ -53,19 +53,7 @@ public class CatService {
             ResponseCats res = new ResponseCats(firstCat.getName(), firstCat.getPrice());
             return res;
         }
-
-
     }
-
-
-//    public  ResponseCats  findByName(CheckCatReq checkCatReq) {
-//
-//        ResponseCats cat = catRepo.findByName(checkCatReq.getName());
-//
-//            return cat;
-//        } else  return null;
-//    }
-
 
     public Cats getCatWithId(int id) {
 

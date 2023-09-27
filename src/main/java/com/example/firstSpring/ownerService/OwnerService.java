@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
+import java.time.Period;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -26,14 +27,33 @@ public class OwnerService {
 
         for (Owner o : res) {
             Cats cat = o.getCats();
-            String animalName = cat.getName();
-            int animalId = cat.getId();
 
             LocalDate birthday = o.getBirthday();
+            if (birthday != null) {
+                LocalDate currentDate = LocalDate.now();
+                Period agePeriod = Period.between(birthday, currentDate);
+                int age = agePeriod.getYears();
+                if (cat != null) {
 
-            OwnerResponse or = new OwnerResponse(o.getName(), o.getLastname(), age, animalName, animalId);
-            ownerResponses.add(or);
+                    String animalName = cat.getName();
+                    int animalId = cat.getId();
 
+                    OwnerResponse or = new OwnerResponse(o.getName(), o.getLastname(), age, animalName, animalId);
+                    ownerResponses.add(or);
+                } else {
+                    OwnerResponse or = new OwnerResponse(o.getName(), o.getLastname(), age, "no animal found",0);
+                    ownerResponses.add(or);
+                }
+            } else if ( cat != null){
+                String animalName = cat.getName();
+                int animalId = cat.getId();
+                OwnerResponse or = new OwnerResponse(o.getName(), o.getLastname(), 0, animalName, animalId);
+                ownerResponses.add(or);
+            }
+            else  {
+                OwnerResponse or = new OwnerResponse(o.getName(), o.getLastname(), 0, "no animal found", 0);
+                ownerResponses.add(or);
+            }
         }
         return ownerResponses;
     }
@@ -47,23 +67,14 @@ public class OwnerService {
             return owner;
         }
     }
+
+
 //    public Owner buyAnimal(Owner owner, Cats cat){
 //
 //    }
 
+
 }
-
-        if (birthday != null) {
-                Period agePeriod = Period.between(birthday, currentDate);
-                int age = agePeriod.getYears();
-
-                OwnerResponse or = new OwnerResponse(o.getName(), o.getLastname(), catName, catId, age);
-                ownerResponses.add(or);
-                } else {
-                // Handle cases where the birthday is not available
-                OwnerResponse or = new OwnerResponse(o.getName(), o.getLastname(), catName, catId, 0); // Default age 0
-                ownerResponses.add(or);
-                }
 
 
 

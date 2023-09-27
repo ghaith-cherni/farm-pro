@@ -3,6 +3,7 @@ import com.example.firstSpring.animalEntity.Cats;
 import com.example.firstSpring.ownerEntity.Owner;
 import com.example.firstSpring.ownerService.OwnerService;
 import com.example.firstSpring.request.OwnerRequest;
+import com.example.firstSpring.response.OwnerResponse;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -20,8 +21,8 @@ public class OwnerController {
     OwnerService ownerService;
 
     @GetMapping("/owner")
-    public ResponseEntity<List<Owner>> getAllOwners() {
-        List<Owner> owners = ownerService.getOwners();
+    public ResponseEntity<List<OwnerResponse>> getAllOwners() {
+        List<OwnerResponse> owners = ownerService.getOwners();
         return ResponseEntity.ok(owners);
     }
 

@@ -1,5 +1,6 @@
 package com.example.firstSpring.request;
 
+import com.example.firstSpring.animalEntity.Cats;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -16,4 +17,5 @@ public class OwnerRequest {
     String profilepic;
     String username;
     String password;
+    Cats  cats;
 }

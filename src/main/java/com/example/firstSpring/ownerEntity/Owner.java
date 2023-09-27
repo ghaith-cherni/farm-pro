@@ -1,9 +1,8 @@
 package com.example.firstSpring.ownerEntity;
 
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import com.example.firstSpring.animalEntity.Cats;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -18,11 +17,16 @@ import java.time.LocalDate;
 public class Owner {
     @Id
     int id;
+
     String name;
     String lastname;
     LocalDate birthday;
     String profilepic;
     String username;
-   String password;
-//   int posAnimalId;
+    String password;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "cat_id", referencedColumnName = "id")
+    private Cats cats;
+
 }

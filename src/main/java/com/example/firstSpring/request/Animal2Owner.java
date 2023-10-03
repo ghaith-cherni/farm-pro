@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Animal2Owner {
-    int id;
-  //  String name;
-
+     int  cat_id ;
+     int owner_id;
+     String operation;
 }

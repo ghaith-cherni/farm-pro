@@ -2,6 +2,7 @@ package com.example.firstSpring.controller.ownerController;
 import com.example.firstSpring.animalEntity.Cats;
 import com.example.firstSpring.ownerEntity.Owner;
 import com.example.firstSpring.ownerService.OwnerService;
+import com.example.firstSpring.request.Animal2Owner;
 import com.example.firstSpring.request.OwnerRequest;
 import com.example.firstSpring.response.OwnerResponse;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -40,9 +41,10 @@ public class OwnerController {
         return ResponseEntity.status(HttpStatus.OK).body("owner added ");
     }
 //    @PostMapping("/update-owner")
-//    public ResponseEntity<List<Owner>> updateOwner(@RequestBody Animal2Owner updatedOwner) {
-//      ownerService.updateOwner(ownerID
-//    }
+//     public ResponseEntity<String> updateOwner(@RequestBody Animal2Owner updatedData) {
+        
+//     ownerService.updateOwner(updatedOwner.,
+//     }
 }
 
 

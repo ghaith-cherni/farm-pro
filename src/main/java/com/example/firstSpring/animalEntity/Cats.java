@@ -26,8 +26,6 @@ public class Cats {
 //    private Owner owner;
 
 
-
-
 //    @OneToOne(fetch = FetchType.LAZY)
 //    @JoinColumn(name = "id")
 //        private Owner owner;

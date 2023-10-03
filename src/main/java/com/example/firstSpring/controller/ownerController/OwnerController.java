@@ -27,20 +27,21 @@ public class OwnerController {
     }
 
     @PostMapping("create-owner")
-    public ResponseEntity<Owner> creatOwner(@RequestBody OwnerRequest newOwner) {
+    public ResponseEntity<String> creatOwner(@RequestBody OwnerRequest newOwner) {
         LocalDate newBirthday = LocalDate.parse(newOwner.getBirthday());
+        Cats newCat =new Cats(-1,null,0);
         Owner convertedNewOwner = new Owner(newOwner.getId(), newOwner.getName(), newOwner.getLastname(),
-                newBirthday, newOwner.getProfilepic(), newOwner.getUsername(), newOwner.getPassword(), new Cats());
+                newBirthday, newOwner.getProfilepic(), newOwner.getUsername(), newOwner.getPassword(),newCat);
         Owner owner = ownerService.addOwner(convertedNewOwner);
         if (ownerService.addOwner(convertedNewOwner) == null) {
-            return null;
-            // return ResponseEntity.status(HttpStatus.CONFLICT).ErrorResponse;
+            return null ;
+            //return ResponseEntity.status(HttpStatus.CONFLICT).body(owner);
         }
-        return ResponseEntity.status(HttpStatus.OK).body(owner);
+        return ResponseEntity.status(HttpStatus.OK).body("owner added ");
     }
-//    @PostMapping("animal-purchase")
-//    public ResponseEntity<Owner> purchase(@RequestBody OwnerRequest newOwner) {
-//
+//    @PostMapping("/update-owner")
+//    public ResponseEntity<List<Owner>> updateOwner(@RequestBody Animal2Owner updatedOwner) {
+//      ownerService.updateOwner(ownerID
 //    }
 }
 

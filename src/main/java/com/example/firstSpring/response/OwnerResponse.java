@@ -13,4 +13,5 @@ public class OwnerResponse {
     int age;
     String animalName;
     int animalId ;
+
 }

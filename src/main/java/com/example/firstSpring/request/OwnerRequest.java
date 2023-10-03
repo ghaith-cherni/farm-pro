@@ -17,5 +17,5 @@ public class OwnerRequest {
     String profilepic;
     String username;
     String password;
-    Cats  cats;
+   // Cats  cats;
 }

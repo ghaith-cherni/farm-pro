@@ -18,7 +18,8 @@ public class CatService {
 
     public List<Cats> getAllCats() {
         List<Cats> target = new ArrayList<>();
-        catRepo.findAll().forEach(target::add);
+        List<Cats> list = catRepo.findAll();
+        list.forEach(target::add);
         return target;
     }
 

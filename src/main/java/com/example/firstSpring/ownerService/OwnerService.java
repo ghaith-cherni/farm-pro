@@ -12,6 +12,7 @@ import java.time.LocalDate;
 import java.time.Period;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 
 @Service
@@ -58,9 +59,11 @@ public class OwnerService {
         return ownerResponses;
     }
 
+
     public Owner addOwner(Owner owner) {
-        List<Owner> existingOwner = ownerRepo.findByUsername(owner.getUsername());
-        if (!existingOwner.isEmpty()) {
+        List<Owner> existingOwnerName = ownerRepo.findByUsername(owner.getUsername());
+        Optional<Owner> existingOwnerId = ownerRepo.findById(owner.getId()) ;
+        if (!existingOwnerName.isEmpty() || existingOwnerId.isPresent()) {
             return null;
         } else {
             ownerRepo.save(owner);
@@ -70,7 +73,7 @@ public class OwnerService {
 
 
 //    public Owner buyAnimal(Owner owner, Cats cat){
-//
+
 //    }
 
 
@@ -81,10 +84,28 @@ public class OwnerService {
 
 
 /*
+for (Owner o : res) {
+    Cats cat = o.getCats();
+    LocalDate birthday = o.getBirthday();
+    OwnerResponse or = new OwnerResponse(o.getName(), o.getLastname(), 0, "no animal found", 0);
 
-             if (cat == null) {
-                return null;
-            } else {
+    if (birthday != null) {
+        LocalDate currentDate = LocalDate.now();
+        Period agePeriod = Period.between(birthday, currentDate);
+        int age = agePeriod.getYears();
+        or.setAge(age);
 
+        if (cat != null) {
+            or.setAnimalName(cat.getName());
+            or.setAnimalId(cat.getId());
+        }
+    } else if (cat != null) {
+        or.setAnimalName(cat.getName());
+        or.setAnimalId(cat.getId());
+    }
+
+    ownerResponses.add(or);
+}
+return ownerResponses;
 
   */

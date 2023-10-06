@@ -10,9 +10,10 @@ import java.util.List;
 
 
 @Repository
-public interface CatRepo extends JpaRepository<Cats, Integer>  {
-    List<Cats>  findByName(String name) ;
+public interface CatRepo extends JpaRepository<Cats, Integer> {
+    List<Cats> findByName(String name);
 
+    Cats findCatsById(int id);
 
     List<Cats> findCatsByName(String name);
 

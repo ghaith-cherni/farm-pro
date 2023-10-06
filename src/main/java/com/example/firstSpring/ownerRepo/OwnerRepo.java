@@ -11,4 +11,5 @@ public interface OwnerRepo extends JpaRepository<Owner, Integer> {
 
     List<Owner> findByUsername(String username);
 
+    List<Owner> findByCats_Id(int catId);
 }

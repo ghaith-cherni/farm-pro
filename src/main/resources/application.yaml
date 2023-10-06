@@ -1,0 +1,51 @@
+security:
+  cookie-props:
+    max-age-in-minutes: 7200
+    http-only: true
+    secure: true
+    domain: "http://localhost:3000"
+    path: /
+  allow-credentials: true
+  allowed-origins:
+    - http://localhost:3000
+  allowed-methods:
+    - GET
+    - POST
+    - PUT
+  allowed-headers:
+    - Authorization
+    - Origin
+    - Content-Type
+    - Accept
+    - Accept-Encoding
+    - Accept-Language
+    - Access-Control-Allow-Origin
+    - Access-Control-Allow-Headers
+    - Access-Control-Request-Method
+    - X-Requested-With
+    - X-Auth-Token
+    - X-Xsrf-Token
+    - Cache-Control
+    - Id-Token
+  allowed-public-apis:
+    - /favicon.ico
+    - /session/login
+    - /public/**
+    - /auth/**
+  exposed-headers:
+    - X-Xsrf-Token
+server:
+  port: 8084
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:8081/exercises
+    username: postgres
+    password: 90210
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        default_schema: cd
+    hibernate:
+      show-sql: true
+      ddl-auto: none
